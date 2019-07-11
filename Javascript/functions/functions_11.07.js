@@ -1,11 +1,18 @@
+function checkIfPalindrom (phrase) {
+
 //We take the string
 //We make it lowercase of uppercase
+transformToLowercase(phrase);
+
 //We produce the reversed string
+let reverserdPhrase = reversePhrase(phrase);
 // We check if original and reverse strings are identical
+comparePhrase()
 
-function checkIfPalindrom (string) {
 
-
+}
+function transformToLowercase(str) {
+    return
 }
 
 checkIfPalindrom('level')   //Return true
