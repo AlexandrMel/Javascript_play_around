@@ -1,17 +1,20 @@
-function checkIfPalindrom (phrase) {
+function checkIfPalindrom(phrase) {
 
-//We take the string
-//We make it lowercase of uppercase
-transformToLowercase(phrase);
-let revesedPhrase = reversePhrase(phrase);
+    //We take the string
+    //We make it lowercase of uppercase
+    let lowerPhrase = transformToLowercase(phrase);
+    let reversedPhrase = reversePhrase(phrase)
 
-//We produce the reversed string
-//let reverserdPhrase = reversePhrase(phrase);
-// We check if original and reverse strings are identical
-//comparePhrase()
+    let res = comparePhrase(lowerPhrase, reversedPhrase)
+    //We produce the reversed string
+    //let reverserdPhrase = reversePhrase(phrase);
+    // We check if original and reverse strings are identical
+    //comparePhrase()
+    console.log(`The word ${phrase} is a palindrom: ${res}`);
 
 
 }
+
 function transformToLowercase(str) {
     let ls = str.toLowerCase();
     console.log(ls)
@@ -19,15 +22,30 @@ function transformToLowercase(str) {
 }
 
 function reversePhrase(sent) {
-    let res ='';
+    let res = '';
     let l = sent.length;
-    for(i=(l-1);i>=0; i--) {
+    for (i = (l - 1); i >= 0; i--) {
         res = res + sent[i];
         console.log(res)
+
     }
+    return res;
 }
 
-checkIfPalindrom('level')   //Return true
-checkIfPalindrom('mAdaM')   //Return true, but send a message that complainsabout the input
+function comparePhrase(low, rev) {
+    if (low == rev) {
+        return true;
+    } else {
+        return false;
+    };
+}
+// let res = (low == rev)? true : false
+// return res
+// return (low==rev)?true : false
+
+
+
+checkIfPalindrom('mAdaM') //Return true, but send a message that complainsabout the input
 checkIfPalindrom('baBYlon') //Return false
-//checkIfPalindrom('i level madam level i')  // Return true
+checkIfPalindrom('level') //Return true
+checkIfPalindrom('i level madam level i') // Return true
