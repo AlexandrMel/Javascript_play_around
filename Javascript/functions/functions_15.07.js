@@ -86,3 +86,68 @@ function greaterTen(n) {
 }
 console.log(greaterTen(11));
 
+
+// Task:
+//
+// write a function weather with one parameter
+// "quality".
+// return 'great' -> quality between 8 and 10
+// return 'good' -> quality between 6 and 8
+// return 'okay' -> quality between 3 and 6
+// return 'not so okay' -> quality between 0 and 3
+
+
+
+function weather(quality) {
+    if( quality > 8 && quality < 10) {
+        return "great";
+    }
+    else if( quality > 6 && quality < 8) {
+        return "good";
+    }
+    else if( quality > 3 && quality < 6) {
+        return "okay";
+    }
+    else if( quality > 0 && quality < 3) {
+        return "not so okay";
+    }
+
+}
+console.log(weather(9));
+
+// Task:
+// invent one function with two parameters
+// that returns a string using the two parameters.
+
+function happyBirthday(Name, years) {
+    console.log(`Hey ${Name}, Congrats with your ${years} th birthday!!`);
+}
+happyBirthday("Alexandr", 31);
+
+function conc(string1, string2) {
+    let result = string1.concat(string2);
+    console.log(result);
+
+}
+conc( "haha", 1)
+
+
+//Task. Add up
+//Create a function that takes a number as an argument. Add up all the numbers from 1 to the number you passed to the function. For example, if the input is 4 then your function should return 10 because 1 + 2 + 3 + 4 = 10.
+//Examples of output:
+//addUp(4) ➞ 10
+//addUp(13) ➞ 91
+//addUp(600) ➞ 180300
+
+function addUp(n) {
+    let res = 0;
+    for(i=n; 0<=i; i--) {
+
+    res = res + i;
+    }
+    return res;
+    
+}
+console.log( addUp(4));
+console.log( addUp(10));
+console.log( addUp(100));
