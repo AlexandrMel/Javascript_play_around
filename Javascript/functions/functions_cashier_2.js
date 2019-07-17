@@ -1,6 +1,7 @@
-function cashier(bigBill, price) {
-    var rest = (bigBill - price).toFixed(2)
+function cashier(price, bigBill) {
+    var rest = parseFloat((bigBill - price).toFixed(2))
     console.log(`Price: ${price}€ \nPaid amount: ${bigBill}€ \nChange: ${rest}€`)
+    if(price<bigBill) {
     var change = calcBill(rest, 20)
     var change1 = calcBill(change, 10)
     var change2 = calcBill(change1, 5)
@@ -13,12 +14,15 @@ function cashier(bigBill, price) {
     var change9 = calcBill(change8, 0.02)
     var change9 = calcBill(change9, 0.01)
     console.log(`==========================`)}
+    else { console.log(`Come back when you have money!!`)}}
 function calcBill(rest, size) {
     var bill = Math.floor(rest / size)
-    if (bill > 0) {
-        console.log(`${bill} x ${size}€`)}
-    return rest1 = (rest - bill * size).toFixed(2);}
-cashier(5, 1.74);
-cashier(50, 33);
-cashier(44, 33.12);
-cashier(44, 22.13);
+        console.log(`${bill} x ${size}€`)
+    return parseFloat((rest - bill * size).toFixed(2));}
+    cashier(3.79, 50);
+    cashier(13.75, 40);
+    cashier(1.74, 5);
+    cashier(10.75, 5);
+    cashier(33, 50);
+    cashier(33.12, 44);
+    cashier(22.13, 44);
