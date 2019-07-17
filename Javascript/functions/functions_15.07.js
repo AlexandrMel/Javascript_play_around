@@ -167,7 +167,8 @@ function lessThanOrEqualToZero(x) {
     else {
         return false;
     }
-// x <=0 : true ? false
+// x <=0 : true ? false -  2 way
+// return (x <=0);  - 3 way
 }
 console.log(lessThanOrEqualToZero(-2));
 console.log(lessThanOrEqualToZero(2));
@@ -177,3 +178,38 @@ console.log(lessThanOrEqualToZero(3))
 console.log(lessThanOrEqualToZero(0))
 console.log(lessThanOrEqualToZero(-4))
 console.log(lessThanOrEqualToZero(10))
+
+//Task:  Where's Waldo?
+//Create a function that takes a string and returns true if Waldo is found and false if he's not.
+//Examples:
+//isWaldoHere("is there wal here ?") ➞ false
+//isWaldoHere("I found you Waldo!") ➞ true
+//isWaldoHere("is wally here?") ➞ false
+//isWaldoHere("waldo is here") ➞ true
+
+
+function isWaldoHere(str) {
+   
+  return str.toLowerCase().includes("waldo");
+//  if(str.search("waldo") >0) {
+//      return true;
+//  }
+//  else {
+//      return false;
+//  }
+}
+console.log("/////////////")
+console.log(isWaldoHere("walDo"))
+console.log(isWaldoHere("is there waldo there"));
+
+
+
+
+//Task :
+//Write a JavaScript function that reverse a number.
+//Sample Data and output:
+//Example x = 32243;
+//Expected Output: 34223
+c= 19%20
+
+console.log(c);
