@@ -1,4 +1,5 @@
 function cashier(bigBill, price) {
+    //Print out the transcation details
     var rest = bigBill - price
     console.log(`Price: ${price}€`)
     console.log(`Paid amount: ${bigBill}€`)

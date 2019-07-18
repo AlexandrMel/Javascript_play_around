@@ -41,26 +41,57 @@ checkForPlurals('alexandrs')
 // How many slices each person gets.
 
 
+function evenPie(nrSlices, nrPers, slicesPerPers) {
+    if( (nrPers * slicesPerPers) % nrSlices == 0) {
+        console.log(`This pie CAN be split evenly!!!`)
+    }
+    else {console.log(`This pie CANNOT be split evenly!!`)}
+}
+evenPie(24, 6, 3)
+
+
+function coolTree(star) {
+    var res ="0";
+    for(j=0; j<star-1; j++) {
+        var res =" "+ res;
+
+        console.log(res);
+    }
+}
+
+coolTree(5)
+
+function addSpace(i,spaceNum,res)
+{
+ 
+    for(j=0; j<spaceNum-i; j++){
+        res = " " + res;
+    }
+    return res;
+}
+function addStar(res)
+{
+    for(k=0; k<i; k++){
+        res = res + "**";
+    }
+    return res;
+}
+const pyramid = (num) => {
+    let res;
+    for(i=0; i<num; i++){
+        res = "*";
+      
+        // we add spaces
+       res =addSpace(i,num,res);
+      
+       // we add stars
+       res =addStar(res);
+        console.log(res);
+    }
+}
+pyramid(5);
+
 // TASK 4
 // Create functions in order to return the following figur:
 
-/*
- 		*
- 	   ***
- 	  *****
- 	 *******
- 	*********
-   ***********
-    *********
- 	 *******
- 	  *****
- 	   ***
- 		*
-// */
-// Collapse
 
-
-
-// Jump
-// Mark as read (esc)
-// Message Input
