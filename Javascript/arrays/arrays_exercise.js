@@ -20,6 +20,20 @@
 // console.log("OK,YOU QUIT THE APP");
 
 var colors = ["red","green","orange","blue"];
-for(var i = 0; i<colors.length; i++) {
-    alert(colors[i]);
-}
+// for(var i = 0; i<colors.length; i++) {
+//     console.log(colors[i]);
+// }
+colors.forEach(function(iLoveDogs){
+    console.log("inside the foreach " + iLoveDogs)
+})
+
+function printColor(color) {
+    console.log("***********");
+    console.log(color);
+    console.log("***********");
+};
+printColor("purple");
+colors.forEach(printColor);
+
+
+
