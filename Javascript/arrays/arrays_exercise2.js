@@ -45,3 +45,43 @@ function maxNum(arg) {
     console.log(max);
 }
 maxNum([3,10,12,15]);
+
+var movieDatabase = [
+    {
+        title: "Avangers",
+        rating: 4.5,
+        watched: true
+    },
+    {
+        title: "Thor",
+        rating: 4.0,
+        watched: true
+    },
+    {
+        title: "The New Spiderman",
+        rating: 3.9,
+        watched: false
+    },
+    {
+        title: "Shazam",
+        rating: 4.2,
+        watched: false
+    }
+]
+
+movieDatabase.forEach(function(movie){
+    console.log(printFunc(movie));
+});
+
+function printFunc(movie) {
+    var result = "You have ";
+    if(movie.watched){
+        result += "watched ";
+    }
+    else {
+        result += "not seen ";
+    }
+    result += "\"" + movie.title + "\" - ";
+    result += movie.rating + " stars";
+    return result;
+}
