@@ -35,6 +35,10 @@ button2.addEventListener("click", function () {
     h2d.textContent = pscore1;
 })
 reset.addEventListener("click", function (){
+    resetf();
+    
+});
+function resetf () {
     console.log("RESET CLICKED")
     pscore = 0;
     pscore1 = 0;
@@ -43,10 +47,10 @@ reset.addEventListener("click", function (){
     h1d.classList.remove("winner");
     h2d.classList.remove("winner");
     gameover = false;
-});
-
+}
 numINP.addEventListener("change", function() {
     win_displ.textContent = numINP.value
     max_score = Number(numINP.value);
+    resetf();
     console.log(max_score);
     });
