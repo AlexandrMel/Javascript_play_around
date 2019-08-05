@@ -15,3 +15,11 @@ function countArguments(...args) {
 
 }
 countArguments("I","am","Thor!");
+
+
+
+
+function persData(FName, LName, birthD, ... restData ) {
+    console.log(`My Name is ${FName} ${LName} i was born on ${birthD}, i was born in ${restData[0]}, zip code ${restData[1]} which is the capital of ${restData[2]} `)
+}
+persData("Alexandr", "Miller","9 of november 1988", "Chisinau", "2028", "Moldova");
