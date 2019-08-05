@@ -64,4 +64,19 @@ showMessage2();// Hello, Polo - function changed the value of var userName;
 showMessage1(); // Hello, Polo - function used the changed value of userName;
 
 
+var userFirstName = "John";
+function showMessages() {
+    //Case 1
+    // let userFirstName = "Bob";
+// Case 2
+var userFirstName = "Bob";
+let message = "Hello, " + userFirstName;
+console.log(message);
+}
+
+console.log(userFirstName); //John
+showMessages(); //Helo, Bob
+console.log(userFirstName); //John
+
+
 
