@@ -19,7 +19,49 @@ countArguments("I","am","Thor!");
 
 
 
-function persData(FName, LName, birthD, ... restData ) {
+function persData(FName, LName, birthD, ...restData ) {
     console.log(`My Name is ${FName} ${LName} i was born on ${birthD}, i was born in ${restData[0]}, zip code ${restData[1]} which is the capital of ${restData[2]} `)
 }
 persData("Alexandr", "Miller","9 of november 1988", "Chisinau", "2028", "Moldova");
+
+
+var infg = ["Alex", "Miller", "9", "Chisinau", "Moldova"];
+function personalD (info) {
+    console.log(`My Name is ${info[0]} ${info[1]} i was born on ${info[2]}, i was born in ${info[3]}, which is the capital of ${info[4]} `)
+
+}
+personalD(infg);
+
+
+// Scope: Local
+
+function showMessage() {
+
+    let message="Hello, I am Javascript!"
+    console.log(message);
+}
+showMessage();//Hello, I am Javascript!
+//console.log(message); Error , message is not defined
+
+// Scope: Global
+
+var userName ="Pico";
+
+function showMessage1() {
+   
+    let message= "Hello, " + userName;
+    console.log(message);
+}
+showMessage1(); // Hello, Pico
+
+
+function showMessage2() {
+    userName = "Polo";
+    var message = "Hello, " + userName;
+    console.log(message);
+}
+showMessage2();// Hello, Polo - function changed the value of var userName;
+showMessage1(); // Hello, Polo - function used the changed value of userName;
+
+
+
