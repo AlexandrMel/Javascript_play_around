@@ -52,3 +52,21 @@ let add = function (a, b) {
 
     console.log(calc(2,3,add))
     console.log(calc(2,3,multiply))
+
+
+    function capitalizeFirstLetter(string) {
+        string = string.split(" ");
+      
+        for(i=0; i<string.length; i++) {
+
+        string[i] = string[i].charAt(0).toUpperCase() + string[i].slice(1);
+        console.log(string[i]);
+    
+    }
+   return string.join(" ")
+    };
+console.log(capitalizeFirstLetter("i am a student with big budget"))
+
+
+var studenti = "i am a student!"
+console.log(studenti.charAt(studenti.indexOf(" ")+1).toUpperCase())
