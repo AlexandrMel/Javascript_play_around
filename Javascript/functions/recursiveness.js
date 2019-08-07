@@ -129,4 +129,46 @@ function printAll5(str5,res, v) {
     printAll5(str5, res, v+1);
 };
 printAll5("1234567", " ", 1);
+printAll5("Alexandr", " ", 1);
+printAll5("Albert", " ", 1);
 console.log(`++++++++++++++++`);
+
+
+
+
+// Other solutions
+
+const sumNum = num => {
+    if(num == 1) return 1; //If the number is 1 then return 1
+    return num + sumNum(num - 1);
+//number inside recursive function behaves like f(4-1)=3 + (3-1)=2 (2-1)=1 than stop
+    
+}
+console.log(sumNum(4));
+console.log("=============");
+// Write a recursive function that calculates the factorial of a number. Factorial of 5 is 5*4*3*2*1 = 120
+const factorial = num => { 
+  if (num === 0) return 1;
+  return num * factorial(num-1);
+//number inside recursive function behaves like f(5-1)=4 * (4-1)=3 * (3-1)=2 * (2-1)=1 * (1-1)=0 than stop
+}
+console.log(factorial(5));
+console.log("=============");
+// Write a recursive function that raises a number x to the power of y
+const exponential = (num, exp) => {
+   if (exp === 0) return 1;
+  else return num * exponential(num, exp-1);//number inside recursive function behaves like 4 * f(4exp1)=4 * (4-exp0)=1 than stop
+}
+console.log(exponential(4, 2));
+console.log("=============");
+// Write a recursive function that reverses a string
+const reverseString = (str, l) => {
+    if(l == 0) return ''; //If the length is 0 then return an empty string
+    
+    //Call the function recursively with one character less and so on.
+    return str[l-1] + reverseString(str, --l);
+  }
+  console.log(reverseString('albert', 6));
+
+
+
