@@ -5,7 +5,7 @@
 let euroCities = ["Paris", "London", "Valletta", "Prague", "Rome"];
 var Moldova = "Chisinau";
 euroCities[1] = Moldova;
-console.log(euroCities);//[ 'Paris', 'Chisinau', 'Valletta', 'Prague', 'Rome' ]
+console.log(euroCities); //[ 'Paris', 'Chisinau', 'Valletta', 'Prague', 'Rome' ]
 
 // 2. Change the first item in the array to "Berlin".
 euroCities[0] = "Berlin"
@@ -17,7 +17,7 @@ console.log(euroCities.length); // 5
 
 // 4. Remove the last item of the array "euroCities".
 euroCities.pop();
-console.log(euroCities);// [ 'Berlin', 'Chisinau', 'Valletta', 'Prague', 'Rome' ]
+console.log(euroCities); // [ 'Berlin', 'Chisinau', 'Valletta', 'Prague', 'Rome' ]
 
 
 // 5. Use an array method to add "Budapest" to the euroCities array.
@@ -26,15 +26,15 @@ euroCities.splice(1, 0, "Budapest");
 console.log(euroCities); //[ 'Berlin', 'Budapest', 'Chisinau', 'Valletta', 'Prague' ]
 
 // 6. Remove the second and third items from the euroCities array.
-euroCities.splice(2, 1,);
+euroCities.splice(2, 1, );
 console.log(euroCities); //[ 'Berlin', 'Budapest', 'Valletta', 'Prague' ]
 
 // 7. Create another variable named asianCities and assign an array to the variable. Clone the array asianCities.
 let asianCities = ["Beijing", "Beijing2", "Beijing3"];
 let cloneAsianCities = asianCities.slice(0, asianCities.length);
 console.log("----------")
-console.log(asianCities);//[ 'Beijing', 'Beijing2', 'Beijing3' ]
-console.log(cloneAsianCities);//[ 'Beijing', 'Beijing2', 'Beijing3' ]
+console.log(asianCities); //[ 'Beijing', 'Beijing2', 'Beijing3' ]
+console.log(cloneAsianCities); //[ 'Beijing', 'Beijing2', 'Beijing3' ]
 asianCities[3] = "Beijing4";
 asianCities[4] = "Beijing5";
 // 8. Use an array method to select items 2-4 from the array of asianCities and store this in another variable.
@@ -65,16 +65,16 @@ console.log(worldCities);
 // "Berlin+London+Bangkok+Phnom Penh"
 
 function joinArray(n, array) {
-array = array.join(n);
-console.log(array);
+    array = array.join(n);
+    console.log(array);
 }
-joinArray(",", worldCities);// Beijing5,Washington,Beijing4,Toronto,Beijing2,Beijing,Prague,Valletta,Budapest,Berlin
+joinArray(",", worldCities); // Beijing5,Washington,Beijing4,Toronto,Beijing2,Beijing,Prague,Valletta,Budapest,Berlin
 joinArray("+", worldCities); //Beijing5+Washington+Beijing4+Toronto+Beijing2+Beijing+Prague+Valletta+Budapest+Berlin
 
 // 14. Empty the array euroCities while keeping the original intact.
 
 
-let newString = euroCities.slice(1,0);
+let newString = euroCities.slice(1, 0);
 console.log(newString);
 console.log(euroCities);
 
@@ -87,7 +87,7 @@ function reverseString(str1) {
     console.log(str1);
 }
 reverseString("Miller"); // relliM
-reverseString("Guliver");//reviluG
+reverseString("Guliver"); //reviluG
 
 
 // ##Extra Practice
@@ -115,7 +115,7 @@ let parent1 = together[4];
 let parent2 = together[3];
 console.log(parent1); //Valetina
 console.log(parent2); // Vasili
-together[3] ="Vasilica";
+together[3] = "Vasilica";
 console.log(together); //[ 'Arman', 'Olga', 'Vadim', 'Vasilica', 'Valentina' ]
 
 
@@ -123,43 +123,56 @@ console.log(together); //[ 'Arman', 'Olga', 'Vadim', 'Vasilica', 'Valentina' ]
 
 
 function changeEnough(change, amountDue) {
-	var sum = change[0] * 0.25 + change[1] * 0.10 + change[2] * 0.05 + change[3] * 0.01;
-	if(sum >= amountDue){
-		return true;
-	}
-	else{
-		return false;
-	}
+    var sum = change[0] * 0.25 + change[1] * 0.10 + change[2] * 0.05 + change[3] * 0.01;
+    if (sum >= amountDue) {
+        return true;
+    } else {
+        return false;
+    }
 }
 console.log(changeEnough([2, 100, 0, 0], 14.11));
 console.log(changeEnough([10, 0, 0, 50], 13.85));
 console.log(changeEnough([2, 100, 0, 0], 14.11));
 
 
-function sumTwoSmallestNumbers(numbers) {  
+function sumTwoSmallestNumbers(numbers) {
     //Code here
-    numbers = numbers.sort(function(a, b){return a-b});
-   sum = numbers[0]+numbers[1];
-  return sum;
-  }
+    numbers = numbers.sort(function (a, b) {
+        return a - b
+    });
+    sum = numbers[0] + numbers[1];
+    return sum;
+}
 console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]));
-console.log(sumTwoSmallestNumbers([15, 28, 4, 2, 43]))// 6 ,
+console.log(sumTwoSmallestNumbers([15, 28, 4, 2, 43])) // 6 ,
 console.log(sumTwoSmallestNumbers([3, 87, 45, 12, 7])) // 10 
-console.log(sumTwoSmallestNumbers([23, 71, 33, 82, 1]))//  24 
+console.log(sumTwoSmallestNumbers([23, 71, 33, 82, 1])) //  24 
 console.log(sumTwoSmallestNumbers([52, 76, 14, 12, 4])) // 16 
 
-function sumTwoSmallestNumbers2(numbers) {  
-    var [ a, b ] = numbers.sort((a, b) => a - b)
+function sumTwoSmallestNumbers2(numbers) {
+    var [a, b] = numbers.sort((a, b) => a - b)
     return a + b
 }
 console.log(sumTwoSmallestNumbers([5, 8, 12, 19, 22]));
-  
+
 let arri = ["one", "two", "three"];
-var [a,b,c] = ["one", "two", "three"];
+var [a, b, c] = ["one", "two", "three"];
 console.log(a);
 console.log(b);
 console.log(c);
-var [d,e,f] = euroCities;
+var [d, e, f] = euroCities;
 console.log(d)
 console.log(e)
 console.log(f)
+
+function order(words) {
+    words = words.split(" ");
+    var res = [];
+    for (i = 0; i < words.length; i++) {
+        res[[(words[i].match(/\d+/)[0]) - 1]] = words[i];
+    }
+    console.log(res.join(" "));
+}
+
+console.log(order("is2 Thi1s T4est 3a"));
+console.log(order("4of Fo1r pe6ople g3ood th5e the2"));
