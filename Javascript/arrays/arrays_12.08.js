@@ -145,7 +145,7 @@ console.log(`=======================================`)
 //             if(arr[i] != numbers[i]) return numbers[i];            
 //     }
 //============================================================================
-    //CASE 3
+//CASE 3
 //     arr.push(0);
 //     let sortedArray = arr.sort();
 //     if(sortedArray[2]==10)
@@ -199,17 +199,209 @@ console.log(missingNumber([17, 3, 5, 4, 6, 7, 8, 9, 2, 11, 12, 13, 14, 15, 16, 2
 
 
 //Remove duplicate items from an array (ignore case sensitivity).
-var nums = [1, 2, 10, 2, 4, 5, 4, 7, 8, 7, 3, 6, 6, 6, 6, 6, 1, 9, 10, 10, 10, 10, "sprint", "Sprint"];
-//Output nums= [1, 2, 3, 4, 5, 6,7,8]
+var nums = [1, 2, 10, 2, 4, 5, 4, 7, 8, 7, 3, 6, 6, 6, 6, 6, 1, 9, 10, 10, 10, 10, 10, 10, 10, 10, "sprint", "Sprint"];
 
-
-function deleteDuplicates (arr) {
+function deleteDuplicates(arr) {
     arr = arr.sort((a, b) => a - b);
-    for(i=0; i<arr.length; i++) {
-    typeof(arr[i]) =="string" ? arr[i]=arr[i].toLowerCase() : arr[i];
-        if(arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i]))
-        { arr.splice(i,1); i--};
+    for (i = 0; i < arr.length; i++) {
+        typeof (arr[i]) == "string" ? arr[i] = arr[i].toLowerCase(): arr[i];
+        if (arr.indexOf(arr[i]) !== arr.lastIndexOf(arr[i])) {
+            arr.splice(i, 1);
+            i--
+        };
     }
     console.log(arr);
 }
 deleteDuplicates(nums)
+
+
+//Create a function that takes an array of numbers and return the number that's unique.
+//Examples:
+// uniqueNum([3, 3, 3, 7, 3, 3]) ➞ 7
+// uniqueNum([0, 0, 0.77, 0, 0]) ➞ 0.77
+// uniqueNum([0, 1, 1, 1, 1, 1, 1, 1]) ➞ 0
+
+
+// function uniqueNum(arr) {
+//     let Result = [];
+//     for (i = 0; i < arr.length; i++) {
+//         if (arr.indexOf(arr[i]) == arr.lastIndexOf(arr[i])) {
+//             Result.push(arr[i])
+//         }
+//     }
+//     console.log(Result);
+// }
+
+
+// function uniqueNum(arr) {
+//     arr = arr.sort((a, b) => a - b);
+//     if(arr[0] === arr[1]) {
+//         console.log(arr[arr.length-1])
+//     }
+//     else { console.log(arr[0])}
+// }
+
+// uniqueNum(arr){
+//     for(i=0;i<arr.length; i++){
+
+//     }
+
+// }
+
+// uniqueNum([3, 3, 3, 7, 3, 3]);
+// uniqueNum([0, 0, 0.77, 0, 0]);
+// uniqueNum([0, 1, 1, 1, 1, 1, 1, 1, 1])
+
+
+
+//Create a function toCamelCase() that takes a single string and convert it into camelCase from snake_case.
+//Examples:
+//toCamelCase("hello_world") ➞ "helloWorld"
+//toCamelCase("javascript_is_fun") ➞ "javascriptIsFun"
+
+
+function toCamelCase(str) {
+    str = str.split("_");
+    for (i = 1; i < str.length; i++) {
+        str[i] = str[i].charAt(0).toUpperCase() + str[i].substring(1);
+    }
+    str = str.join("");
+    console.log(str)
+}
+toCamelCase("hello_world")
+toCamelCase("javascript_is_fun")
+
+
+
+//Create a function that takes a string, checks if it has the same number of 'x's and 'o's and returns //either true or false.
+//* Return a boolean value (true or false).
+//* The string can contain any character.
+//* When neither an x nor an o is in the string, return true.
+//
+//Examples:
+//XO("ooxx") ➞ true
+//XO("xooxx") ➞ false
+//XO("ooxXm") ➞ true (case insensitive)
+//XO("zpzpzpp") ➞ true (returns true if no x and o)
+//XO("zzoo") ➞ false
+
+// function xO(str) {
+//     str = str.toLowerCase();
+//     var os = 0;
+//     var xs = 0;
+//     for (i = 0; i < str.length; i++) {
+//         if (str[i] == "o") {
+//             os += 1;
+//         } else if (str[i] == "x") {
+//             xs += 1;
+//         }
+
+//     }
+//     if (xs == os) {
+//         console.log(`True`);
+//     } else {
+//         console.log(`False`);
+//     }
+// }
+function xO(str) {
+    // str = str.toLowerCase();
+    console.log((str.length - str.replace(/x/ig, "").length) == (str.length - str.replace(/o/ig, "").length) ? true : false)
+    // console.log(((str.split("x").length-1) ==(str.split("o").length-1)) ? true : false)
+}
+
+xO("ooxx");
+xO("xooxx");
+xO("ooxXm");
+xO("zpzpzpp");
+xO("zzoo");
+
+
+//8. Dictionary
+//Create a function that takes in an initial word and filters out an array to contain words that start //with the same letters as the initial word.
+//
+//Examples
+//dictionary("bu", ["button", "breakfast", "border"]) ➞ ["button"]
+//dictionary("tri", ["triplet", "tries", "trip", "piano", "tree"]) ➞ ["triplet", "tries", trip"]
+//dictionary("beau", ["pastry", "delicious", "name", "boring"]) ➞ []
+//
+//**Notes**
+//* If none of the words match, return an empty array.
+//* Keep the filtered array in the same relative order as the original array of words.
+
+//First Solution
+
+// function dictio(str, arr) {
+//     var res = []
+//     for (i = 0; i < str.length; i++) {
+//         if ((str + arr[i].substring(str.length)) == arr[i]) {
+//             res.push(arr[i])
+//         }
+//     }
+//     console.log(res);
+// }
+
+//Second Solution
+
+// function dictio (str, arr) {
+//     var res = []
+//     for(i=0; i<arr.length; i++){
+//         if(arr[i].includes(str)){
+//             res.push(arr[i]);
+//         }
+//     }
+//     console.log(res)
+// }
+
+function dictio(str, arr) {
+    var res = 0;
+    var res1 = []
+    for (i = 0; i < arr.length; i++) {
+        for (j = 0; j < str.length; j++) {
+            if (str[j] == arr[i][j]) {
+              res++;
+            }
+        }
+        if (res == str.length) {
+            res1.push(arr[i])
+        }
+        res = 0;
+    }
+    console.log(res1);
+}
+dictio("bu", ["button", "breakfast", "border"])
+dictio("tri", ["triplet", "tries", "trip", "piano", "tree",])
+dictio("beau", ["pastry", "delicious", "name", "boring",])
+
+console.log(`==================================================`)
+
+// 7. Pig Latin Translation
+// Create a function that takes a string of words and moves the first letter of each word to the end of it, then adds 'ay' to the end of the word. This is a basic form of "Pig Latin".
+
+// **Rules**
+// Move the first letter of each word to the end of the word.
+// Add "ay" to the end of the word.
+// Words starting with a vowel (A, E, I, O, U) simply have "WAY" appended to the end.
+
+// //Examples:
+// pigLatin("Cats are great pets.") ➞ "Atscay areway reatgay etspay"
+// pigLatin("Tom got a small piece of pie.") ➞ "Omtay otgay away allsmay iecepay ofway iepay"
+// pigLatin("He told us a very exciting tale.") ➞ "Ehay oldtay usway away eryvay excitingway aletay"
+
+// //**Notes**
+// //Be sure to preserve proper capitalization, ignore punctuation.
+
+function pigLatin(str) {
+    str = str.replace( /[^a-zA-Z ]/g , "").toLowerCase().split(" ");
+var res = ""
+for(i=0;i<str.length;i++){
+    if(str[i][0].match(/[aeiou]/)) {
+        res += str[i] + "way ";
+    }
+  else {res +=str[i].slice(1) + str[i][0] + "ay ";}
+}
+res = res[0].toUpperCase() + res.substring(1);
+console.log(res)}
+
+pigLatin("Ca.ts a.re gr/+++_ea.t pets.")
+pigLatin("Tom got a small piece of pie.")
+pigLatin("He told us a very exciting tale.")
