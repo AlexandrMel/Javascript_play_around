@@ -198,12 +198,22 @@ name : "David Rayy",
 sclass : "VI",
 rollno : 12 };
 // Sample Output: name, sclass, rollno
-
+const listOfProperties = student => {
+    var result = Object.keys(student).toString();
+    return result;
+}
+console.log(listOfProperties(student));
 Object.entries(student).forEach(([item, value]) => {
-    console.log(item);
+    var res = "";
+res += item + ",";
+console.log(res)
 });
 
-for( prop in student){ console.log(prop)}
+for( prop in student){ 
+    var res = "";
+    res += prop + ",";
+    console.log(res)
+}
 
 
 
@@ -218,10 +228,12 @@ for( prop in student){ console.log(prop)}
 // * Notes: Assume min <= max is always true.
 
 function calcMin(num, obj) {
-    var res = obj.min <= num && num <= obj.max ? true: false;    
+    var res = obj.min <= num && num <= obj.max;    
 console.log(res)}
 
 calcMin( 4, { min: 0, max: 5 });
 calcMin( 4, { min: 4, max: 5 });
 calcMin( 4, { min: 6, max: 10 });
 calcMin( 5, { min: 5, max: 5 });
+
+
