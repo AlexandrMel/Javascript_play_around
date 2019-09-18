@@ -1,0 +1,14 @@
+{
+  "name": "helloapp",
+  "version": "1.0.0",
+  "description": "It's an app that says hello!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alex Miller",
+  "license": "ISC",
+  "dependencies": {
+    "give-me-a-joke": "^0.1.2"
+  }
+}
