@@ -1,0 +1,7 @@
+.main {
+    height: 700px;
+}
+.player2_current_score, p {
+    width: 20%!important;
+    height: 20%!important;
+}
