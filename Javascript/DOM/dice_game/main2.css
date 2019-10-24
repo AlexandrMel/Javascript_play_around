@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 .clearfix::after {
@@ -13,16 +14,28 @@
     display: table;
     clear: both;
 }
-
+.background {
+    object-fit: cover;
+}
 body {
-    background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4), url(back.jpg));
-    background-size: cover;
+    /* background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4), url(back.jpg)); */
+    height: 100vh;
+    background-image: url(/diceC.jpg);
+    background-size: contain;
     background-position: center;
     font-family: Lato;
     font-weight: 300;
     position: relative;
-    height: 100vh;
     color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.gameRules {
+    color: #a00;
+    text-decoration: underline;
+    background: white;
 }
 
 .wrapper {
@@ -42,6 +55,19 @@ body {
     float: left;
     height: 600px;
     padding: 100px;
+    background-image: url(/jersy.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.player-0-panel,
+.player-1-panel::before {
+    background-color: white !important;
+}
+
+span {
+    font-size: 12px;
+    text-transform: none;
 }
 
 /*****************************************************
@@ -49,12 +75,12 @@ body {
 *****************************************************/
 
 .player-name {
-    font-size: 40px;
+    font-size: 30px;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
     font-weight: 100;
-    margin-top: 20px;
+    margin-top: 90px;
     margin-bottom: 10px;
     position: relative;
 }
@@ -62,16 +88,21 @@ body {
 .player-score {
     text-align: center;
     font-size: 80px;
-    font-weight: 100;
-    color: #EB4D4D;
-    margin-bottom: 130px;
+    font-weight: 150;
+    color: #a00;
+    margin-bottom: 70px;
 }
 
 .active {
-    background-color: #f7f7f7;
+    background-color: #f4f4f4 !important;
+    font-weight: 400;
 }
 
 .active .player-name {
+    font-weight: 400;
+}
+
+.active .player-score {
     font-weight: 300;
 }
 
@@ -81,7 +112,7 @@ body {
     position: absolute;
     color: rgb(77, 235, 117);
     top: -7px;
-    right: 10px;
+    right: 25px;
 }
 
 .player-current-box {
@@ -91,6 +122,8 @@ body {
     margin: 0 auto;
     padding: 12px;
     text-align: center;
+    border: 2px solid #a00;
+
 }
 
 .player-current-label {
@@ -98,6 +131,7 @@ body {
     margin-bottom: 10px;
     font-size: 12px;
     color: #222;
+
 }
 
 .player-current-score {
@@ -120,16 +154,107 @@ button {
     transition: background-color 0.3s, color 0.3s;
 }
 
+.buttonImg {
+    padding-top: 5px;
+    padding-right: 5px;
+}
+
+.helpText {
+    position: absolute;
+    width: 110px;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    background: none;
+    border: none;
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: 400;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.newGameHelpText {
+    top: 130px;
+
+}
+
+.rollDiceHelpText {
+    top: 470px;
+
+}
+
+.holdHelpText {
+    top: 530px;
+
+}
+
+.winScoreHelpText {
+    top: 25px;
+}
+
+button:hover {
+    font-weight: 400;
+    text-shadow: 2px 2px 2px #CE5937;
+
+}
+
 .btn-new {
-    top: 45px;
+    top: 100px;
 }
 
 .btn-roll {
-    top: 403px;
+    top: 437px;
 }
 
 .btn-hold {
-    top: 467px;
+    top: 500px;
+}
+
+.clickKEY {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 5px;
+    width: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #555;
+    background: none;
+    border: none;
+    font-family: Lato;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+    padding-right: 20px;
+}
+
+#switchContainer {
+    box-sizing: border-box;
+    width: 80px;
+    height: 30px;
+    border: 2px solid #a00;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    margin: 0;
+    padding: 1px;
+}
+
+#switch {
+    width: 36px;
+    height: 24px;
+    background-color: #EB4D4D;
+    transition: transform 1s;
+    transform: translateX(0px);
+
+}
+
+.switchClass {
+    transform: translateX(36px);
 }
 
 i {
@@ -153,6 +278,40 @@ i {
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
 }
 
+.Win {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 20px;
+    position: absolute;
+    left: 50%;
+    top: 5px;
+    transform: translateX(-50%);
+    height: 80px;
+    width: 220px;
+    /* box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10); */
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
+
+#defaultScore {
+    font-size: 12px;
+}
+
+.inputWin {
+    height: 30px;
+    width: 95px;
+    text-align: center;
+}
+
+.winParag {
+    background-color: transparent;
+    text-align: center;
+
+}
+
 .winner {
     background-color: #f7f7f7;
 }
@@ -162,73 +321,67 @@ i {
     color: #EB4D4D;
 }
 
-.final-score {
-
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 520px;
-    color: #555;
-    font-size: 18px;
-    font-family: 'Lato';
-    text-align: center;
-    padding: 10px;
-    width: 160px;
-    text-transform: uppercase;
-
+.winnerClass {
+    background: url(/jersy.png), url(/UntidySickHairstreak-size_restricted.gif);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 
 
 #view {
-    display: none;
     position: absolute;
-    left: 400px;
-    top: 110px;
+    left: 405px;
+    top: 107px;
     width: 100px;
     height: 00px;
     margin: 50px;
     perspective: 300px;
 }
 
-#dice {
+#view2 {
+    position: absolute;
+    left: 405px;
+    top: 235px;
     width: 100px;
-    height: 100px;
+    height: 00px;
+    margin: 50px;
+    perspective: 270px;
+}
+
+#dice {
+    display: none;
+    width: 90px;
+    height: 90px;
+    margin-top: 20px;
     position: relative;
     transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
     transition: transform 1s;
+    -webkit-transition: transform 1s;
+
 }
 
-.nrs1 {
-    transform: rotateY(360deg) !important;
+#dice2 {
+    display: none;
+    width: 90px;
+    height: 90px;
+    margin-top: 20px;
+    position: relative;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 1s;
+    -webkit-transition: transform 1s;
+
 }
 
-.nrs2 {
-    transform: rotateY(-90deg) !important;
-}
-
-.nrs3 {
-    transform: rotateY(180deg) !important;
-}
-
-.nrs4 {
-    transform: rotateY(90deg) !important;
-}
-
-.nrs5 {
-    transform: rotateX(-90deg) !important;
-}
-
-.nrs6 {
-    transform: rotateX(90deg) !important;
-}
 
 .diceFace {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
     text-align: center;
-    line-height: 100px;
+    line-height: 90px;
     font-size: 45px;
     border: 2px solid #a00;
 }
@@ -237,44 +390,94 @@ i {
     background-image: url("/dice-1.png");
     background-position: center;
     background-size: cover;
-    transform: rotateY(0deg) translateZ(50px);
+    transform: rotateY(0deg) translateZ(45px);
+    -webkit-transform: rotateY(0deg) translateZ(45px);
 }
 
 #nr2 {
     background-image: url("/dice-2.png");
     background-position: center;
     background-size: cover;
-    transform: rotateY(90deg) translateZ(50px);
+    transform: rotateY(90deg) translateZ(45px);
+    -webkit-transform: rotateY(90deg) translateZ(45px);
 }
 
 #nr3 {
     background-image: url("/dice-3.png");
     background-position: center;
     background-size: cover;
-    transform: rotateY(180deg) translateZ(50px);
+    transform: rotateY(180deg) translateZ(45px);
+    -webkit-transform: rotateY(180deg) translateZ(45px);
 }
 
 #nr4 {
     background-image: url("/dice-4.png");
     background-position: center;
     background-size: cover;
-    transform: rotateY(-90deg) translateZ(50px);
+    transform: rotateY(-90deg) translateZ(45px);
+    -webkit-transform: rotateY(-90deg) translateZ(45px);
 }
 
 #nr5 {
     background-image: url("/dice-5.png");
     background-position: center;
     background-size: cover;
-    transform: rotateX(90deg) translateZ(50px);
+    transform: rotateX(90deg) translateZ(45px);
+    -webkit-transform: rotateX(90deg) translateZ(45px);
 }
 
 #nr6 {
     background-image: url("/dice-6.png");
     background-position: center;
     background-size: cover;
-    transform: rotateX(-90deg) translateZ(50px);
+    transform: rotateX(-90deg) translateZ(45px);
+    -webkit-transform: rotateX(-90deg) translateZ(45px);
 }
 
-#canvas {
-	display: block;
+.pulse {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    animation-iteration-count: infinite;
+    animation-duration: 1s;
+}
+
+@-webkit-keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.2, 1.2, 1.2);
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes pulse {
+    from {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.2, 1.2, 1.2);
+        transform: scale3d(1.2, 1.2, 1.2);
+    }
+
+    to {
+        -webkit-transform: scale3d(1, 1, 1);
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.bold {
+    font-weight: 400;
+    transition: 0.3s;
+    transition-delay: 0.3s;
+    text-shadow: 2px 2px 2px #CE5937
 }
