@@ -23,25 +23,23 @@ let randomNumber = () => {
 var buttonKey = true;
 document.querySelector(".gameRules").onclick = function() {
   let gameRules = document.querySelector(".gameRules");
-  if (gameRules.innerHTML == "Check out the Game rules") {
+  if (gameRules.innerHTML == "Game rules") {
     document.querySelector(".flip-card-inner").classList.toggle("flip");
-    gameRules.innerHTML = "Go back to the Game";
+    gameRules.innerHTML = "Back to the Game";
   } else {
     document.querySelector(".flip-card-inner").classList.toggle("flip");
-    gameRules.innerHTML = "Check out the Game rules";
+    gameRules.innerHTML = "Game rules";
   }
 };
 function forDiceRolling(event) {
   event.preventDefault();
   if (event.code == "Space") {
     diceRolling();
-    event.stopPropagation();
   }
 }
 function forHoldPress(event) {
   if (event.code == "KeyS") {
     holdPress();
-    event.stopPropagation();
   }
 }
 function forReload(event) {
@@ -84,7 +82,7 @@ function switcheru() {
   }
 }
 function verifyScore() {
-  let winLimit = winLimitInput.value | 20;
+  let winLimit = winLimitInput.value | 50;
   if (
     Number(player1_g_score.innerHTML) > Number(player2_g_score.innerHTML) &&
     Number(player1_g_score.innerHTML) > winLimit
@@ -161,7 +159,13 @@ function diceRolling() {
         setTimeout(function() {
           player1_score.innerHTML = Number(player1_score.innerHTML) + nr + nr2;
         }, 500);
-      } else {
+      } 
+      else if(nr == 1 && nr2 == 1) {
+        setTimeout(function() {
+          player1_g_score.innerHTML = 0;
+          resetScore();
+        }, 500);}
+      else {
         resetScore();
       }
     } else {
@@ -171,7 +175,13 @@ function diceRolling() {
         setTimeout(function() {
           player2_score.innerHTML = Number(player2_score.innerHTML) + nr + nr2;
         }, 500);
-      } else {
+      }
+      else if(nr == 1 && nr2 == 1) {
+        setTimeout(function() {
+          player2_g_score.innerHTML = 0;
+          resetScore();
+        }, 500);}
+      else {
         resetScore();
       }
     }

@@ -6,82 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Dice game</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main2.css">
-    <style>
-        .flip-card {
-            background-color: transparent;
-            width: 1000px;
-            height: 600px;
-            perspective: 1000px;
-            display: flex;
-            flex-direction: column;
-            justify-items: center;
-            align-items: flex-end;
-            margin-bottom: 40px;
-        }
-
-        .flip-card-inner {
-            display: flex;
-            position: relative;
-            width: 100%;
-            height: 100%;
-            text-align: center;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-        }
-
-        /* .flip-card:hover .flip-card-inner {
-            transform: rotateY(180deg);
-        } */
-        .flip {
-            transform: rotateY(180deg);
-        }
-
-        .flip-card-front,
-        .flip-card-back {
-            position: absolute;
-            width: 1000px;
-            height: 600px;
-            backface-visibility: hidden;
-        }
-
-        .flip-card-front {
-            color: black;
-        }
-
-        .flip-card-back {
-            background-color: white;
-            color: black;
-            transform: rotateY(180deg);
-            border: 4px solid #a00;
-        }
-        .rules {
-            width: 60%;
-            margin: 5% auto;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
 </head>
 
 <body>
     <div class="flip-card">
-        <div class="gameRules">Check out the Game rules</div>
+        <div class="gameRules">Game rules</div>
         <div class="flip-card-inner">
             <div class="flip-card-front">
                 <div class="wrapper">
                     <div class="Win">
                         <p class="winParag">SET WINNING SCORE</p><input type="text" placeholder="ex: 100"
-                        class="inputWin">
-                        <p class="helpText winScoreHelpText">(default is 20)</p>
+                            class="inputWin">
+                        <p class="helpText winScoreHelpText">(default is 50)</p>
                     </div>
                     <button class="btn-new"><img class="buttonImg" height="20" src="/new.svg" alt="img">NEW
                         GAME</button>
-                        <p class="helpText newGameHelpText">( or press N key )</p>
-                        <button class="btn-roll"><img class="buttonImg" height="20" src="/rollDice.svg" alt="img">Roll
+                    <p class="helpText newGameHelpText">( or press N key )</p>
+                    <button class="btn-roll"><img class="buttonImg" height="20" src="/rollDice.svg" alt="img">Roll
                         Dice</button>
-                        <p class="helpText rollDiceHelpText">( or press Space key )</p>
-                        <button class="btn-hold"><img class="buttonImg" height="20" src="/hold.svg" alt="img">HOLD</button>
-                        <p class="helpText holdHelpText">( or press S key )</p>
+                    <p class="helpText rollDiceHelpText">( or press Space key )</p>
+                    <button class="btn-hold"><img class="buttonImg" height="20" src="/hold.svg" alt="img">HOLD</button>
+                    <p class="helpText holdHelpText">( or press S key )</p>
                     <div id="view">
                         <div id="dice">
                             <div class="diceFace" id="nr1"></div>
@@ -128,20 +74,60 @@
                 </div>
             </div>
             <div class="flip-card-back">
-                <h1>The Dice Game</h1>
-                <p class="rules">Your Challenges</p>
-                <p>1. A player looses his ENTIRE score (GLOBAL score) when he rolls two 6 in a row. After that, it’s the
-                    next player’s turn.(Hint: Always save the previous dice roll in a separate variable). This is with
-                    one dice.
-                </p>
-                <p class="rules"> 2. Add an input field to the HTML where players can set the winning score, so that they can change
-                    the predefined score of 100. (Hint: you can read that value with the .value property in javascript.
-                    This is good opportunity to use google to figure this out :slightly_smiling_face:
-                </p>
-                <p class="rules">3. Add another dice to the game, so that there are two dices now. The player looses his current score
-                    when one of them is a 1. (Hint: you will need CSS to position the second dice, so take a look at the
-                    CSS code for the first one.)
-                </p>
+                <h1>The Two-Dice Pig (Dice Game)</h1>
+                <div class="rules">
+                    <h3>Game History</h3>
+                    <hr><br>
+                    <p>Pig is a simple dice game first described in print by John Scarne in 1945. As with many games of
+                        folk origin, Pig is played with many rule variations. Pig is commonly used by mathematics
+                        teachers to teach probability
+                        concepts.
+
+                        Pig is one of a family of dice games described by Reiner Knizia as "jeopardy dice games". For
+                        jeopardy dice games, the dominant type of decision is whether or not to jeopardize previous
+                        gains by
+                        rolling for potential greater gains. Most jeopardy dice games can be further subdivided into two
+                        categories: jeopardy race games and jeopardy approach games. In jeopardy race games, the object
+                        is
+                        to be the first to meet or exceed a goal score. In jeopardy approach games, the object is to
+                        most closely approach a goal score without
+                        exceeding it.
+                    </p>
+                </div>
+                <div class="rules">
+                    <h3>Gameplay</h3>
+                    <hr><br>
+                    <ul>
+                        <li>Each turn, a player repeatedly rolls two dices until either a 1 is rolled or the player
+                            decides to "hold".</li>
+
+                        <li>If the first player rolls at least one 1, they score nothing and the turn goes to the second
+                            player.</li>
+                        <li>If neither dice faces shows a 1, the dice score is added to their turn total and the
+                            player's turn
+                            continues.</li>
+                        <li>If two 1s are rolled, the player’s entire score is lost, and the turn ends.</li>
+                        <li>If a player chooses to "hold", their turn total is added to their final score, and it
+                            becomes
+                            the next
+                            player's turn.</li>
+                        <li>The first player to score more points then the set Winning Limit, wins.</li>
+                    </ul>
+                    <p>
+                        For example, the first player, Donald, begins a turn with a roll of 5 and 3. Donald could hold
+                        and
+                        score 8
+                        points, but chooses to roll again. Donald rolls a 2 and a 6, and could hold with a turn total of
+                        16
+                        points, but
+                        chooses to roll again. Donald rolls a 1, and must end his turn without scoring. The next player,
+                        Alexis,
+                        rolls the sequence (4,1)-(5,2)-(3,3), after which she chooses to hold, and adds her turn total
+                        of 18
+                        points to
+                        her score.</p>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
